@@ -61,8 +61,8 @@ class PhotoGallery extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: SizedBox(
-                      width: 300,
-                      height: 300,
+                      width: 200,
+                      height: 200,
                       child: Image.asset(
                         path,
                         fit: BoxFit.cover,
