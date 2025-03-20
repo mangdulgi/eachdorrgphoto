@@ -50,7 +50,7 @@ class PhotoGallery extends StatelessWidget {
               children: photoPaths.map((path) {
                 return SizedBox(
                   width: 300, // 각 이미지의 너비
-                  height: 200, // 각 이미지의 높이
+                  height: 300, // 각 이미지의 높이
                   child: Image.network(
                     path,
                     fit: BoxFit.cover,
