@@ -21,11 +21,24 @@ class PhotoGallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ✅ 웹에서 사용할 이미지 리스트
-    List<String> photoPaths = List.generate(120, (index) => 'images/week${index + 1}.jpg');
+    // ✅ 갤러리에 표시할 이미지 리스트
+    List<String> photoPaths = List.generate(30, (index) => 'images/week${index + 1}.jpg');
 
     return Scaffold(
-      appBar: AppBar(title: const Text('도르륵 상품 목록')),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            const Text('도르륵 상품목록'),  // ✅ 제목
+            const SizedBox(width: 10), // ✅ 간격 추가
+            Image.network(
+              'images/logo.jpg',  // ✅ 제목 옆 작은 이미지
+              width: 40,
+              height: 40,
+              errorBuilder: (context, error, stackTrace) => const Icon(Icons.image_not_supported),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
