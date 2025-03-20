@@ -22,7 +22,7 @@ class PhotoGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ✅ 갤러리에 표시할 이미지 리스트
-    List<String> photoPaths = List.generate(30, (index) => 'images/week${index + 1}.jpg');
+    List<String> photoPaths = List.generate(120, (index) => 'images/week${index + 1}.jpg');
 
     return Scaffold(
       appBar: AppBar(
