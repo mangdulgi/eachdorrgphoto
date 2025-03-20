@@ -22,7 +22,7 @@ class PhotoGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> photoPaths =
-        List.generate(120, (index) => 'images/week${index + 1}.jpg');
+        List.generate(120, (index) => 'image/week${index + 1}.jpg');
 
     return Scaffold(
       appBar: AppBar(
@@ -30,8 +30,8 @@ class PhotoGallery extends StatelessWidget {
           children: [
             const Text('도르륵 상품목록'),
             const SizedBox(width: 10),
-            Image.asset(
-              'images/logo.png',
+            Image.network(
+              'image/logo.png',
               width: 50,
               height: 50,
               errorBuilder: (context, error, stackTrace) =>
@@ -51,8 +51,7 @@ class PhotoGallery extends StatelessWidget {
               children: photoPaths.map((path) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
+                    Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => FullScreenImage(imagePath: path),
                       ),
@@ -61,9 +60,9 @@ class PhotoGallery extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: Image.asset(
+                      width: 300,
+                      height: 300,
+                      child: Image.network(
                         path,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) =>
@@ -93,7 +92,7 @@ class FullScreenImage extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: InteractiveViewer(
-          child: Image.asset(imagePath,
+          child: Image.network(imagePath,
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) =>
                   const Center(child: Text('이미지를 불러올 수 없습니다!', style: TextStyle(color: Colors.white)))),
