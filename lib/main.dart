@@ -29,11 +29,11 @@ class PhotoGallery extends StatelessWidget {
         title: Row(
           children: [
             const Text('도르륵 상품목록'),  // ✅ 제목
-            const SizedBox(width: 10), // ✅ 간격 추가
+            const SizedBox(width: 1), // ✅ 간격 추가
             Image.network(
-              'images/logo.jpg',  // ✅ 제목 옆 작은 이미지
-              width: 40,
-              height: 40,
+              'images/logo.png',  // ✅ 제목 옆 작은 이미지
+              width: 100,
+              height: 100,
               errorBuilder: (context, error, stackTrace) => const Icon(Icons.image_not_supported),
             ),
           ],
