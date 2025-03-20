@@ -49,53 +49,23 @@ class PhotoGallery extends StatelessWidget {
               runSpacing: 10,
               alignment: WrapAlignment.center,
               children: photoPaths.map((path) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => FullScreenImage(imagePath: path),
-                      ),
-                    );
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: SizedBox(
-                      width: 300,
-                      height: 300,
-                      child: Image.network(
-                        path,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Center(child: Text('이미지를 불러올 수 없습니다!')),
-                      ),
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                    color: Colors.grey[200],
+                    child: Image.network(
+                      path,
+                      fit: BoxFit.fill,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Center(child: Text('이미지를 불러올 수 없습니다!')),
                     ),
                   ),
                 );
               }).toList(),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class FullScreenImage extends StatelessWidget {
-  final String imagePath;
-
-  const FullScreenImage({super.key, required this.imagePath});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.black),
-      backgroundColor: Colors.black,
-      body: Center(
-        child: InteractiveViewer(
-          child: Image.network(imagePath,
-              fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) =>
-                  const Center(child: Text('이미지를 불러올 수 없습니다!', style: TextStyle(color: Colors.white)))),
         ),
       ),
     );
