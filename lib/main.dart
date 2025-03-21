@@ -28,7 +28,7 @@ class PhotoGallery extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            const Text('도르륵 상품목록'),
+            const Text('도르륵 상품 목록'),
             const SizedBox(width: 10),
             Image.network(
               'image/logo.png',
